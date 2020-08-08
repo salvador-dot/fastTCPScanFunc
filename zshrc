@@ -2,7 +2,7 @@
 
 function extractPortsGo(){
         ports="$(cat $1 | grep Abierto | awk '{print $1}' FS=':' | xargs | tr ' ' ',')"
-        ip_address="$(cat allPorts.tmp | grep host | awk '{print $4}' FS=' ')" 
+        ip_address="$(cat $1 | grep host | awk '{print $4}' FS=' ')" 
         echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
         echo -e "\t[*] IP Address: $ip_address" >> extractPorts.tmp
         echo -e "\t[*] Open ports: $ports\n" >> extractPorts.tmp
